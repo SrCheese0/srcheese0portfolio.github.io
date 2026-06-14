@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SrCheese0 | Work</title>
+  <style>
+    :root {
+      --bg: #0f0f10;
+      --panel: #17171a;
+      --text: #f2f2f2;
+      --muted: #c7c7c7;
+      --accent: #e3d409;
+      --accent-dark: #c9bc08;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: radial-gradient(circle at top, #1a1a1f 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .nav a {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: rgba(227, 212, 9, 0.12);
+      border-color: rgba(227, 212, 9, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 24px 56px;
+    }
+
+    .hero {
+      text-align: center;
+      margin: 36px 0 34px;
+      padding: 42px 24px;
+      background: rgba(23, 23, 26, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(23, 23, 26, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(227, 212, 9, 0.35);
+    }
+
+    .thumb {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 26px 26px 0 0;
+      background: linear-gradient(135deg, rgba(227, 212, 9, 0.18), rgba(255, 255, 255, 0.03));
+      border-bottom: 1px solid var(--border);      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(242, 242, 242, 0.75);
+      font-size: 1.05rem;
+      text-align: center;
+      padding: 0;
+	  margin: 0;
+    }
+
+    .thumb strong {
+      color: var(--accent);
+    }
+
+    .card-body {
+      padding: 20px 20px 22px;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .card-title {
+      margin: 0 0 8px;
+      font-size: 1.4rem;
+      color: var(--text);
+    }
+
+    .card-date {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .card-text {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #111;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .footer {
+      max-width: 1200px;
+      margin: 22px auto 0;
+      padding: 0 24px 26px;
+      color: #9a9a9a;
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+    .faq-section {
+      margin-top: 34px;
+      padding: 30px 24px 10px;
+      background: rgba(23, 23, 26, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(10px);
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .section-subtitle {
+      margin: -6px 0 24px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      padding-bottom: 20px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .faq-trigger {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      padding: 18px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font: inherit;
+      font-weight: 700;
+      text-align: left;
+      transition: background 0.22s ease;
+    }
+
+    .faq-trigger:hover {
+      background: rgba(227, 212, 9, 0.08);
+    }
+
+    .faq-icon {
+      color: var(--accent);
+      font-size: 1.3rem;
+      line-height: 1;
+      transition: transform 0.45s ease;
+      flex: 0 0 auto;
+      width: 1.2rem;
+      text-align: center;
+    }
+
+    .faq-item.is-open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-panel {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.55s ease, opacity 0.35s ease;
+    }
+
+    .faq-item.is-open .faq-panel {
+      opacity: 1;
+    }
+
+    .faq-panel-inner {
+      padding: 0 18px 18px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .faq-panel-inner p {
+      margin: 0;
+    }
+
+    .faq-panel-inner .en {
+      display: block;
+      margin-top: 10px;
+      color: #a9a9a9;
+    }
+
+    .program-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .program-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+
+    .program-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(227, 212, 9, 0.35);
+      background: rgba(227, 212, 9, 0.08);
+    }
+
+    .program-link img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .program-link span {
+      white-space: nowrap;
+    }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">SrCheese0</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1>Hola, soy SrCheese0!</h1>
+	  <h1>Hi, I'm SrCheese0!</h1>
+      <p>Desliza hacia abajo para ver mis ediciones! • Scroll down to see my edits!</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="thumb">
+		  <img src="img/breakingbad/Breaking Bad 2008.png" alt="Breaking Bad">
+		</div>
+		<div class="card-body">
+		  <h2 class="card-title">Breaking Bad</h2>
+		  <div class="card-date">Colección</div>
+		  <p class="card-text">Ediciones enfocadas en contraste, color e iluminación.</p>
+		  <a href="breaking-bad.html" class="button">Ver proyecto</a>
+		</div>
+	  </article>
+
+	  <article class="card">
+		<div class="thumb">
+		  <img src="img/variado/Helado de Chocolate.png" alt="Variado">
+		</div>
+		<div class="card-body">
+		  <h2 class="card-title">Variado</h2>
+		  <div class="card-date">Mini colección</div>
+		  <p class="card-text">Una colección de trabajos distintos y estilos variados.</p>
+		  <a href="variado.html" class="button">Ver proyecto</a>
+		</div>
+	  </article>
+	</section>
+  </main>
+
+
+    <section class="faq-section">
+      <h2 class="section-title">Preguntas frecuentes • FAQ</h2>
+      <p class="section-subtitle">Un vistazo rápido a quién soy, qué hago y cómo trabajo. • A quick look at who I am, what I do, and how I work.</p>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span>¿Quién eres? • Who are you?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div class="faq-panel-inner">
+              <p>Soy SrCheese0, tengo 16 años y me gusta la edición de imágenes. Me gusta experimentar con nuevas técnicas, aprender de forma autodidacta y transformar ideas en proyectos visuales.<span class="en">I'm SrCheese0, I'm 16 years old, and I like image editing. I enjoy experimenting with new techniques, learning on my own, and turning ideas into visual projects.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span>¿Qué haces? • What do you do?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div class="faq-panel-inner">
+              <p>Actualmente me dedico principalmente a la edición de imágenes. También creo tutoriales en YouTube sobre DOOM (1993) y desarrollo mods para ese mismo videojuego.<span class="en">I mainly focus on image editing. I also create YouTube tutorials about DOOM (1993) and make mods for that same game.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span>¿Qué programas utilizas? • What programs do you use?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div class="faq-panel-inner">
+              <p>Utilizo una variedad de programas para mis proyectos. Los que más utilizo son Paint.NET, Affinity y Photopea.</p>
+              <span class="en">I use a variety of programs for my projects. The ones I use most are Paint.NET, Affinity, and Photopea.</span>
+              <div class="program-links">
+                <a class="program-link" href="https://www.getpaint.net/" target="_blank" rel="noopener noreferrer" title="Paint.NET">
+                  <img src="img/logos/paintnetlogo.png" alt="Paint.NET logo">
+                  <span>Paint.NET</span>
+                </a>
+                <a class="program-link" href="https://affinity.serif.com/" target="_blank" rel="noopener noreferrer" title="Affinity">
+                  <img src="img/logos/affinitylogo.png" alt="Affinity logo">
+                  <span>Affinity</span>
+                </a>
+                <a class="program-link" href="https://www.photopea.com/" target="_blank" rel="noopener noreferrer" title="Photopea">
+                  <img src="img/logos/photopealogo.png" alt="Photopea logo">
+                  <span>Photopea</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span>¿Aceptas encargos? • Do you take commissions?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div class="faq-panel-inner">
+              <p>Sí. Acepto encargos dependiendo del proyecto y de mi disponibilidad. Si en ese momento no puedo realizarlo, normalmente prefiero posponerlo antes que rechazarlo, salvo que sea un proyecto demasiado complejo.<span class="en">Yes. I accept commissions depending on the project and my availability. If I cannot do it at the moment, I usually prefer to postpone it rather than reject it, unless it's too complex.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span>¿Aceptas colaboraciones? • Do you accept collaborations?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div class="faq-panel-inner">
+              <p>Sí, siempre que el proyecto sea razonable y se ajuste a mi disponibilidad.<span class="en">Yes, as long as the project is reasonable and fits my availability.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <div class="footer">
+    © 2026 SrCheese0 • Hosted on GitHub Pages
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const trigger = item.querySelector('.faq-trigger');
+      const panel = item.querySelector('.faq-panel');
+
+      const closeItem = () => {
+        item.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.setAttribute('aria-hidden', 'true');
+        panel.style.maxHeight = '0px';
+      };
+
+      const openItem = () => {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.setAttribute('aria-hidden', 'false');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      };
+
+      trigger.addEventListener('click', () => {
+        if (item.classList.contains('is-open')) {
+          closeItem();
+        } else {
+          openItem();
+        }
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.faq-item.is-open .faq-panel').forEach((panel) => {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      });
+    });
+  </script>
+</body>
